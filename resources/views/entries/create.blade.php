@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    <form action="" method="post">
-
+                    <form action="{{ url('entries') }}" method="post">
+					@csrf
 						<div class="form-group">
 							<label for="title" >Title</label>
 							<div class="">
@@ -46,7 +46,7 @@
 							</div>
 						</div>
 
-						<button type="submit" class="btn btn-primary">Publish</button>
+						<br><button type="submit" class="btn btn-primary">Publish</button>
 					</form>
                 </div>
             </div>
