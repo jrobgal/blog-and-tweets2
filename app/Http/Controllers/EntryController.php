@@ -34,4 +34,24 @@ class EntryController extends Controller
 		$status = 'your entry has been published successfully';
 		return back()->with(compact('status'));
 	}
+
+	public function edit(Entry $entry)
+	{
+		return view('entries.edit', compact('entry'));
+	}
+
+	public function update(Request $request, Entry $entry)
+	{
+		$validateData = $request->validate([
+			'title' => 'required |min:7|max:255| unique:entries',
+			'content' => 'required |min:25|max:3000'
+		]);
+
+		$entry->title = $validateData['title'];
+		$entry->content = $validateData['content'];
+		$entry->save(); //UPDATE
+
+		$status = 'your entry has been updated successfully';
+		return back()->with(compact('status'));
+	}
 }
