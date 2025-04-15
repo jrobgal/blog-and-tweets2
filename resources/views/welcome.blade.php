@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-			<h1 class="mb-4">Last Entries</h1>
+			<h1 class="col-md-4">Last Entries</h1>
 			@foreach($entries as $entry)
-            <div class="card mb-4">
+            <div class="card col-mb-4">
                 <div class="card-header">
 					{{ $entry->id }} . {{ $entry->title }}
 				</div>

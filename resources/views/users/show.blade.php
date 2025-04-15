@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-	<div class="col-md-4">
+		<div class="col-md-4">
             <div class="card">
                 <div class="card-header">Tweets</div> 
 
@@ -28,7 +28,7 @@
 					<ul>
 						@foreach($entries as $entry)
 							<li>
-								<a href="{{ url('entries/'.$entry->id) }}">
+								<a href="{{ $entry->getUrl()/*url('entries/'.$entry->slug.'-'.$entry->id)*/ }}">
 									{{ $entry->title }}	
 								</a>
 							</li>

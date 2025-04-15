@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [App\Http\Controllers\GuestController::class, 'index']);
 
@@ -12,7 +13,7 @@ Route::get('/entries/create', [App\Http\Controllers\EntryController::class, 'cre
 
 Route::post('/entries/', [App\Http\Controllers\EntryController::class, 'store']);
 
-Route::get('/entries/{entry}', [App\Http\Controllers\GuestController::class, 'show']);
+Route::get('/entries/{entryBySlug}', [App\Http\Controllers\GuestController::class, 'show']);
 
 Route::get('/entries/{entry}/edit', [App\Http\Controllers\EntryController::class, 'edit']);
 
