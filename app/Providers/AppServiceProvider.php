@@ -12,6 +12,10 @@ use App\Exceptions\InvalidEntrySlugException;
 
 class AppServiceProvider extends ServiceProvider
 {
+	protected $policies = [
+		//'App\Models' => 'App\Policies\ModelPolicy',
+		Entry::class => EntryPolicy::class
+	];
     /**
      * Register any application services.
      */

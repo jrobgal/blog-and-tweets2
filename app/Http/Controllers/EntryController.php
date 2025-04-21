@@ -37,11 +37,21 @@ class EntryController extends Controller
 
 	public function edit(Entry $entry)
 	{
+		$this->authorize('update', $entry);
+		/*if (auth()->id() !== $entry->user_id) {
+			return redirect('/');
+		}*/
+
 		return view('entries.edit', compact('entry'));
 	}
 
 	public function update(Request $request, Entry $entry)
 	{
+		$this->authorize('update', $entry);
+		/*if (auth()->id() !== $entry->user_id) {
+			return redirect('/');
+		}*/
+
 		$validateData = $request->validate([
 			'title' => 'required |min:7|max:255| unique:entries,id,'.$entry->id,
 			'content' => 'required |min:25|max:3000'

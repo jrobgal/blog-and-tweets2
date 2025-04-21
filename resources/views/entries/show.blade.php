@@ -16,13 +16,20 @@
 
 					{{ $entry->content }}
 
-					@if($entry->user_id === auth()->id())
+					@can('update', $entry)
 					<hr>
 						<a href="{{ url('/entries/'.$entry->id.'/edit') }}" class="btn btn-primary">
 							Edit entry
 						</a>
-					@endif
+					@endcan
                 </div>
+
+				<div class="card-footer">
+					Autor: 
+					<a href="{{ url('@'.$entry->user->username) }}">
+						{{ $entry->user->name }}
+					</a>
+				</div>
             </div>
         </div>
     </div>
